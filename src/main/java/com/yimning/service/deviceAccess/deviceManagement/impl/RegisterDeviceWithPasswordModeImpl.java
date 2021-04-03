@@ -83,7 +83,11 @@ public class RegisterDeviceWithPasswordModeImpl implements RegisterDeviceWithPas
         System.out.println(responseRegisterDevice.getStatusLine());
         System.out.println(responseRegisterDevice.getContent());
         System.out.println();
-        HttpResponseResult responseResult = JSONObject.parseObject(responseRegisterDevice.getContent(), HttpResponseResult.class);
+
+        HttpResponseResult responseResult = new HttpResponseResult();
+        if (responseRegisterDevice.getContent()!=null){
+            responseResult	= JSONObject.parseObject(responseRegisterDevice.getContent(), HttpResponseResult.class);
+        }
         responseResult.setStatus_code(responseRegisterDevice.getStatusLine().getStatusCode());
         responseResult.setReason_phrase(responseRegisterDevice.getStatusLine().getReasonPhrase());
         return responseResult;

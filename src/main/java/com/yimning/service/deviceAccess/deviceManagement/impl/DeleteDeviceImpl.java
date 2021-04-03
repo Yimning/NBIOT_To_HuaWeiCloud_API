@@ -57,8 +57,10 @@ public class DeleteDeviceImpl implements DeleteDeviceService {
 */
 
 		System.out.println(""+responseDeleteDevice);
-
-		HttpResponseResult responseResult = JSONObject.parseObject(responseDeleteDevice.getContent(), HttpResponseResult.class);
+		HttpResponseResult responseResult = new HttpResponseResult();
+		if(responseDeleteDevice.getContent()!=null){
+			responseResult = JSONObject.parseObject(responseDeleteDevice.getContent(), HttpResponseResult.class);
+		}
 		responseResult.setStatus_code(responseDeleteDevice.getStatusLine().getStatusCode());
 		responseResult.setReason_phrase(responseDeleteDevice.getStatusLine().getReasonPhrase());
 		//System.out.println(responseResult);

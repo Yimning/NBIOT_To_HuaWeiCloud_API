@@ -77,7 +77,11 @@ public class DeleteSubDeviceImpl implements DeleteSubDeviceService {
         System.out.println(responseDeleteSubDevice.getStatusLine());
         System.out.println(responseDeleteSubDevice.getContent());
         System.out.println();
-        HttpResponseResult responseResult = JSONObject.parseObject(responseDeleteSubDevice.getContent(), HttpResponseResult.class);
+
+        HttpResponseResult responseResult = new HttpResponseResult();
+        if(responseDeleteSubDevice.getContent()!=null){
+            responseResult = JSONObject.parseObject(responseDeleteSubDevice.getContent(), HttpResponseResult.class);
+        }
         responseResult.setStatus_code(responseDeleteSubDevice.getStatusLine().getStatusCode());
         responseResult.setReason_phrase(responseDeleteSubDevice.getStatusLine().getReasonPhrase());
         return responseResult;
