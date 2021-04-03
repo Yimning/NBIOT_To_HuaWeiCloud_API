@@ -27,7 +27,7 @@ public class ModifyDeviceInfoController{
     @Autowired
     private ModifyDeviceInfoService modifyDeviceInfoService;
 
-    @PostMapping("/ModifyDeviceInfoService")
+    @PostMapping("/modifyDeviceInfoService")
     public HttpResponseResult DeleteDevice(@RequestBody Device device) throws Exception {
         HttpResponseResult httpResponseResult = modifyDeviceInfoService.ModifyDeviceInfo(device);
         return httpResponseResult;
