@@ -24,7 +24,9 @@ import java.util.Map;
 
 @Service
 public class QueryDeviceImpl implements QueryDeviceService {
-
+    /** 
+     * @Description: 查询设备数据信息
+     */
     @Override
     public DeviceDataInfo QueryDevice(String deviceId) throws Exception {
 

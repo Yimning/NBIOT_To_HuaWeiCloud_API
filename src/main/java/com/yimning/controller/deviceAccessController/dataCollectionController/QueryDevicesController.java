@@ -23,8 +23,8 @@ public class QueryDevicesController {
     private QueryDevicesService queryDevicesService;
 
     @PostMapping("/queryDevices")
-    public List<DeviceDataInfo> QueryDevices(@RequestBody DeviceDataInfos DeviceDataInfos)throws Exception {
-        List<DeviceDataInfo> deviceDataInfos = queryDevicesService.QueryDevices(DeviceDataInfos);
+    public DeviceDataInfos QueryDevices(@RequestBody DeviceDataInfos DeviceDataInfos)throws Exception {
+        DeviceDataInfos deviceDataInfos = queryDevicesService.QueryDevices(DeviceDataInfos);
         return deviceDataInfos;
     }
 }

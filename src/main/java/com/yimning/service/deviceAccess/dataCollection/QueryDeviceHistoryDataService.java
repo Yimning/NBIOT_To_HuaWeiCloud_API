@@ -15,7 +15,7 @@ import com.yimning.utils.StreamClosedHttpResponse;
  * operation. If an NA needs to view the historical data reported by a device to the 
  * IoT platform, the NA can call this API to obtain the data.
  */
-public class QueryDeviceHistoryData {
+public class QueryDeviceHistoryDataService {
 
     public static void main(String args[]) throws Exception {
 

@@ -1,5 +1,7 @@
 package com.yimning.service.deviceAccess.dataCollection.impl;
 
+import com.alibaba.fastjson.JSONObject;
+import com.yimning.common.lang.HttpResponseResult;
 import com.yimning.entity.DeviceDataInfo;
 import com.yimning.entity.DeviceDataInfos;
 import com.yimning.service.deviceAccess.appAccessSecurity.Authentication;
@@ -23,8 +25,13 @@ import java.util.Map;
  */
 @Service
 public class QueryDevicesImpl implements QueryDevicesService {
+    /**
+     *  
+     *
+     * @Description: 查询所有设备数据信息
+     */
     @Override
-    public List<DeviceDataInfo> QueryDevices(DeviceDataInfos deviceDataInfos) throws Exception {
+    public DeviceDataInfos QueryDevices(DeviceDataInfos deviceDataInfos) throws Exception {
 
         // Two-Way Authentication
         HttpsUtil httpsUtil = new HttpsUtil();
@@ -93,6 +100,12 @@ public class QueryDevicesImpl implements QueryDevicesService {
         System.out.println(responseQueryDevices.getStatusLine());
         System.out.println(responseQueryDevices.getContent());
         System.out.println();
-        return null;
+        if (responseQueryDevices.getStatusLine().getStatusCode() == 200)
+            deviceDataInfos = JSONObject.parseObject(responseQueryDevices.getContent(), DeviceDataInfos.class);
+        HttpResponseResult httpResponseResult = new HttpResponseResult();
+        httpResponseResult.setStatus_code(responseQueryDevices.getStatusLine().getStatusCode());
+        httpResponseResult.setReason_phrase(responseQueryDevices.getStatusLine().getReasonPhrase());
+        deviceDataInfos.setHttpResponseResult(httpResponseResult);
+        return deviceDataInfos;
     }
 }

@@ -12,10 +12,12 @@ import com.yimning.utils.JsonUtil;
 import com.yimning.utils.StreamClosedHttpResponse;
 
 public interface QueryDevicesService {
-    /** 
+    /**
+     *  
+     *
      * @Description: 查所有设备数据
      */
-    public List<DeviceDataInfo>  QueryDevices(DeviceDataInfos deviceDataInfos) throws Exception ;
+    public DeviceDataInfos QueryDevices(DeviceDataInfos deviceDataInfos) throws Exception;
 
 }
 

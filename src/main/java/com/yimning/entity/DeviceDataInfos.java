@@ -2,6 +2,7 @@ package com.yimning.entity;
 
 import java.util.List;
 
+import com.yimning.common.lang.HttpResponseResult;
 import lombok.Data;
 
 /**
@@ -29,7 +30,7 @@ public class DeviceDataInfos {
                         //ASC：按注册设备的时间升序排列
                         // DESC：按注册设备的时间降序排列
     private String select;//指定返回记录，可取值：imsi。
-
+    private HttpResponseResult httpResponseResult;
     private List<Devices> devices;
 
     @Data
