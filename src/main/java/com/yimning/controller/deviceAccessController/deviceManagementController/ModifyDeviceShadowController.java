@@ -1,4 +1,4 @@
-package com.yimning.service.deviceAccess.deviceManagement;
+package com.yimning.controller.deviceAccessController.deviceManagementController;
 
 import java.util.ArrayList;
 import java.util.HashMap;
