@@ -3,7 +3,6 @@ package com.yimning.entity;
 import com.yimning.common.lang.HttpResponseResult;
 
 import java.util.List;
-
 /**
  * @program: NBIOT_To_HuaWeiCloud_API
  * @description: 设备的信息和数据情况
