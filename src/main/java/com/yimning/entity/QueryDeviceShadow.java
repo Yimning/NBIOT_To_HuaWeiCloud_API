@@ -20,31 +20,4 @@ public class QueryDeviceShadow {
     private String services;
     private int status_code;
     private String reason_phrase;
-    @Data
-    public class DeviceInfo {
-        private String nodeId;
-        private String name;
-        private String description;
-        private String manufacturerId;
-        private String manufacturerName;
-        private String mac;
-        private String location;
-        private String deviceType;
-        private String model;
-        private String swVersion;
-        private String fwVersion;
-        private String hwVersion;
-        private String protocolType;
-        private String bridgeId;
-        private String status;
-        private String statusDetail;
-        private String mute;
-        private String supportedSecurity;
-        private String isSecurity;
-        private String signalStrength;
-        private String sigVersion;
-        private String serialNumber;
-        private String batteryLevel;
-        private String isHD;
-    }
 }

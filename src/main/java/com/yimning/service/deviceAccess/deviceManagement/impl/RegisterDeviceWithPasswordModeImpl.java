@@ -1,11 +1,10 @@
 package com.yimning.service.deviceAccess.deviceManagement.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.yimning.common.lang.Device;
+import com.yimning.entity.Device;
 import com.yimning.common.lang.HttpResponseResult;
 import com.yimning.service.deviceAccess.appAccessSecurity.Authentication;
 import com.yimning.service.deviceAccess.deviceManagement.RegisterDeviceWithPasswordModeService;
-import com.yimning.service.deviceAccess.deviceManagement.RegisterDeviceWithVerificationCodeModeService;
 import com.yimning.utils.Constant;
 import com.yimning.utils.HttpsUtil;
 import com.yimning.utils.JsonUtil;

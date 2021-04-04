@@ -2,8 +2,7 @@ package com.yimning.service.deviceAccess.deviceManagement.impl;
 
 
 import com.alibaba.fastjson.JSONObject;
-import com.sun.org.apache.bcel.internal.generic.NEW;
-import com.yimning.common.lang.Device;
+import com.yimning.entity.Device;
 import com.yimning.common.lang.HttpResponseResult;
 import com.yimning.service.deviceAccess.appAccessSecurity.Authentication;
 import com.yimning.service.deviceAccess.deviceManagement.ModifyDeviceInfoService;

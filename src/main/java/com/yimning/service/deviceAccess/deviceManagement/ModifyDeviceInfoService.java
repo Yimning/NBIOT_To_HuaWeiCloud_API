@@ -1,6 +1,6 @@
 package com.yimning.service.deviceAccess.deviceManagement;
 
-import com.yimning.common.lang.Device;
+import com.yimning.entity.Device;
 import com.yimning.common.lang.HttpResponseResult;
 
 

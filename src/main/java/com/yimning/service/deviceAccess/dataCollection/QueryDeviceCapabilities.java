@@ -32,8 +32,8 @@ public class QueryDeviceCapabilities {
         String urlQueryDeviceCapabilities = Constant.QUERY_DEVICE_CAPABILITIES;
 
         //please replace the deviceId and gatewayId, when you call this interface.
-        String deviceId = "de71ad4a-211e-4e53-b48c-80cb2d5c88c8";
-        String gatewayId = "de71ad4a-211e-4e53-b48c-80cb2d5c88c8";
+        String deviceId = "14dc5d95-c306-415d-8aec-1afb6e797c19";
+        String gatewayId = "14dc5d95-c306-415d-8aec-1afb6e797c19";
 
         Map<String, String> paramQueryDeviceCapabilities = new HashMap<>();
         paramQueryDeviceCapabilities.put("deviceId", deviceId);

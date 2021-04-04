@@ -1,9 +1,6 @@
 package com.yimning.controller.deviceAccessController.deviceManagementController;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import com.yimning.common.lang.Device;
+import com.yimning.entity.Device;
 import com.yimning.common.lang.HttpResponseResult;
 import com.yimning.service.deviceAccess.deviceManagement.RegisterDeviceWithPasswordModeService;
 import org.springframework.beans.factory.annotation.Autowired;

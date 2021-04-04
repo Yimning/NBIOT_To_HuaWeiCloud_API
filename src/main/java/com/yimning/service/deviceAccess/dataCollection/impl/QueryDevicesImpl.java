@@ -1,21 +1,21 @@
-package com.yimning.service.deviceAccess.dataCollection;
-
-import java.util.HashMap;
-import java.util.Map;
+package com.yimning.service.deviceAccess.dataCollection.impl;
 
 import com.yimning.utils.Constant;
 import com.yimning.utils.HttpsUtil;
 import com.yimning.utils.JsonUtil;
 import com.yimning.utils.StreamClosedHttpResponse;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Querying Device Information in Batches :
- * 
- * If an NA needs to view detailed information (such as the manufacturer, model, version, 
- * status, and service attributes) of multiple devices that have been registered on the 
+ *
+ * If an NA needs to view detailed information (such as the manufacturer, model, version,
+ * status, and service attributes) of multiple devices that have been registered on the
  * IoT platform, the NA can call this API to obtain the information.
  */
-public class QueryDevices {
+public class QueryDevicesImpl {
 
     public static void main(String args[]) throws Exception {
 
@@ -41,7 +41,7 @@ public class QueryDevices {
         Map<String, String> header = new HashMap<>();
         header.put(Constant.HEADER_APP_KEY, appId);
         header.put(Constant.HEADER_APP_AUTH, "Bearer" + " " + accessToken);
-        
+
         StreamClosedHttpResponse responseQueryDevices = httpsUtil.doGetWithParasGetStatusLine(urlQueryDevices,
         		paramQueryDevices, header);
 

@@ -1,16 +1,8 @@
 package com.yimning.controller.deviceAccessController.deviceManagementController;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import com.yimning.common.lang.Device;
+import com.yimning.entity.Device;
 import com.yimning.common.lang.HttpResponseResult;
 import com.yimning.service.deviceAccess.deviceManagement.ModifyDeviceInfoService;
-import com.yimning.service.deviceAccess.deviceManagement.ModifyDeviceInfoService;
-import com.yimning.utils.Constant;
-import com.yimning.utils.HttpsUtil;
-import com.yimning.utils.JsonUtil;
-import com.yimning.utils.StreamClosedHttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

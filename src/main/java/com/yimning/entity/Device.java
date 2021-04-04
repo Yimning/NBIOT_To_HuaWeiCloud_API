@@ -1,4 +1,4 @@
-package com.yimning.common.lang;
+package com.yimning.entity;
 
 import lombok.Data;
 
@@ -31,18 +31,8 @@ public class Device {
     private boolean mqttConnect;        //设备是否使用MQTT协议接入，注册MQTT协议接入设备时需要设置为true
     private String secret;           //设备密码，格式要求为20位16进制数。若在请求中指定secret，则响应中返回请求中指定的secret；若请求中不指定secret，则由物联网平台自动生成
     private DeviceInfo deviceInfo;          //添加设备时封装
-    //private DeviceInfoDTO deviceInfo;
 
-    @Data
-    public static class DeviceInfo{
-        private String nodeId;
-        private String manufacturerId;
-        private String manufacturerName;
-        private String deviceType;
-        private String model;
-        private String protocolType;
-        private String name;
-    };
+
 
     /** 
     * 验证码方式时可用以下变量
@@ -55,14 +45,5 @@ public class Device {
     private String verifyCode;     //设备验证码，全局唯一，建议与nodeId设置成相同值。若在请求中指定verifyCode，则响应中返回请求中指定的verifyCode；若请求中不指定verifyCode，则由物联网平台自动生成
     private String deviceName;      //设备名称
 
-    @Data
-    public static class DeviceInfoDTO{
-        private String nodeId;
-        private String manufacturerId;
-        private String manufacturerName;
-        private String deviceType;
-        private String model;
-        private String protocolType;
-        private String name;
-    };
+
 }

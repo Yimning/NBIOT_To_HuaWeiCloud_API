@@ -1,9 +1,8 @@
 package com.yimning.controller.deviceAccessController.deviceManagementController;
 
 
-import com.yimning.common.lang.Device;
+import com.yimning.entity.Device;
 import com.yimning.common.lang.HttpResponseResult;
-import com.yimning.service.deviceAccess.deviceManagement.RegisterDeviceWithPasswordModeService;
 import com.yimning.service.deviceAccess.deviceManagement.RegisterDeviceWithVerificationCodeModeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

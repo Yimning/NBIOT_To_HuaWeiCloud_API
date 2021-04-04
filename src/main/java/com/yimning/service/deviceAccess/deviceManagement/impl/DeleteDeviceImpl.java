@@ -33,8 +33,8 @@ public class DeleteDeviceImpl implements DeleteDeviceService {
 		HttpsUtil httpsUtil = new HttpsUtil();
 		httpsUtil.initSSLConfigForTwoWay();
 
-		Authentication authentication = new Authentication();
 		// Authentication.get token
+		Authentication authentication = new Authentication();
 		String accessToken = authentication.accessToken();
 
 		//Please make sure that the following parameter values have been modified in the Constant file.
