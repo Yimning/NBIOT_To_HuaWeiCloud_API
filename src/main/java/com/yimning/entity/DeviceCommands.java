@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.yimning.common.lang.HttpResponseResult;
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * @program: NBIOT_To_HuaWeiCloud_API
  * @description: 设备命令
@@ -31,6 +33,7 @@ public class DeviceCommands {
     private int issuedTimes;
     private int maxRetransmit;//命令下发最大重传次数。
     private HttpResponseResult httpResponseResult;
+
     @Data
     public class Paras {
         private String value;
@@ -49,4 +52,30 @@ public class DeviceCommands {
          */
         private ObjectNode paras;
     }
+
+
+    //撤销命令时可用
+    private String taskId;
+    private int totalCount;
+    private List<String> deviceCommands;
+
+    @Data
+    public class deviceCommands {
+        private String commandId;
+        private String appId;
+        private String deviceId;
+        private Command command;
+        private String callbackUrl;
+        private int expireTime;
+        private String status;
+        private ObjectNode result;
+        private String creationTime;
+        private String executeTime;
+        private String platformIssuedTime;
+        private String deliveredTime;
+        private int issuedTimes;
+        private int maxRetransmit;
+    }
+
+
 }
