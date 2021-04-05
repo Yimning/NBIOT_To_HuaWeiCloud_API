@@ -27,8 +27,12 @@ public class QueryDeviceCapabilities {
         private List<ServiceCapabilities> serviceCapabilities;
     }
 
+    /**
+     * 非静态成员嵌套类的实例化依赖于外部类实例，
+     * 而静态嵌套类的实例化不依赖于外部类，将内部类改为静态嵌套类即可。
+     **/
     @Data
-    public class ServiceCapabilities {
+    public static class ServiceCapabilities {
         private String serviceId;
         private String serviceType;
         private String option;
@@ -38,20 +42,20 @@ public class QueryDeviceCapabilities {
     }
 
     @Data
-    public class Commands {
+    public static class Commands {
         private String commandName;
         private List<Paras> paras;
         private List<Responses> responses;
     }
 
     @Data
-    public class Responses {
+    public static class Responses {
         private String responseName;
         private List<Paras> paras;
     }
 
     @Data
-    public class Paras {
+    public static class Paras {
         private String paraName;
         private String dataType;
         private boolean required;
@@ -64,7 +68,7 @@ public class QueryDeviceCapabilities {
     }
 
     @Data
-    public class Properties {
+    public static class Properties {
         private String propertyName;
         private String dataType;
         private boolean required;
@@ -76,5 +80,16 @@ public class QueryDeviceCapabilities {
         private String unit;
         private String enumList;
     }
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
