@@ -10,10 +10,10 @@ import java.util.Map;
 
 /**
  * Creating Device Command Revocation Tasks :
- * 
- * After an NA delivers commands to a device, the IoT platform does not deliver the commands 
- * to the device for execution (the commands are in the PENDING state) if the commands are 
- * in queue or the device is offline. In this case, the NA can call this API to revoke all 
+ *
+ * After an NA delivers commands to a device, the IoT platform does not deliver the commands
+ * to the device for execution (the commands are in the PENDING state) if the commands are
+ * in queue or the device is offline. In this case, the NA can call this API to revoke all
  * the undelivered commands of a specified device. Commands that have been delivered cannot be revoked.
  */
 public class CreateDeviceCmdCancelTaskImpl {
@@ -32,7 +32,7 @@ public class CreateDeviceCmdCancelTaskImpl {
         String urlCreateDeviceCmdCancelTask = Constant.CREATE_DEVICECMD_CANCEL_TASK;
 
         //please replace the deviceId, when you call this interface.
-        String deviceId  = "de71ad4a-211e-4e53-b48c-80cb2d5c88c8";
+        String deviceId  = "e0818ab5-2962-40f2-83de-6dd9ee3569e2";
         
         Map<String, Object> paraCreateDeviceCmdCancelTask = new HashMap<>();
         paraCreateDeviceCmdCancelTask.put("deviceId", deviceId);
