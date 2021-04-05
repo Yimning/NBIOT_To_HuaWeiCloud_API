@@ -88,7 +88,6 @@ public class QueryDevicesImpl implements QueryDevicesService {
             paramQueryDevices.put("select", deviceDataInfos.getSort());
         }
 
-
         System.out.println(paramQueryDevices);
         Map<String, String> header = new HashMap<>();
         header.put(Constant.HEADER_APP_KEY, appId);
@@ -100,9 +99,12 @@ public class QueryDevicesImpl implements QueryDevicesService {
         System.out.println(responseQueryDevices.getStatusLine());
         System.out.println(responseQueryDevices.getContent());
         System.out.println();
+        HttpResponseResult httpResponseResult = new HttpResponseResult();
         if (responseQueryDevices.getStatusLine().getStatusCode() == 200)
             deviceDataInfos = JSONObject.parseObject(responseQueryDevices.getContent(), DeviceDataInfos.class);
-        HttpResponseResult httpResponseResult = new HttpResponseResult();
+        else {
+            httpResponseResult = JSONObject.parseObject(responseQueryDevices.getContent(), HttpResponseResult.class);
+        }
         httpResponseResult.setStatus_code(responseQueryDevices.getStatusLine().getStatusCode());
         httpResponseResult.setReason_phrase(responseQueryDevices.getStatusLine().getReasonPhrase());
         deviceDataInfos.setHttpResponseResult(httpResponseResult);
