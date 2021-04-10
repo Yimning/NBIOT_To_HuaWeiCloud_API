@@ -12,20 +12,20 @@ import java.util.List;
  **/
 @lombok.Data
 public class QueryDeviceCommands {
-
     private String app_key;
     private String Authorization;
-    private int pageNo;
-    private int pageSize;
+    private Integer pageNo;
+    private Integer pageSize;
     private String taskId;
     private String appId;
     private String deviceId;  //命令所属的应用ID，当创建授权应用下的命令时才需要填写。
     private String status;
     private String startTime;
     private String endTime;
-
+    private HttpResponseResult httpResponseResult;
     private Pagination pagination;
-    private List<DeviceCommandCancelTaskResp> data;
+    private List<DeviceCommandTaskResp> data;
+
 
     @lombok.Data
     public class Pagination {
@@ -35,11 +35,21 @@ public class QueryDeviceCommands {
     }
 
     @lombok.Data
-    public class DeviceCommandCancelTaskResp {
-        private String taskId;
+    public class DeviceCommandTaskResp {
+
+        private String commandId;
         private String appId;
         private String deviceId;
+        private DeviceCommands.Command command;
+        private int expireTime;
         private String status;
+        private Result result;
+        private String creationTime;
+        private String platformIssuedTime;
+        private int issuedTimes;
+        private int maxRetransmit;
+
+        private String taskId;
         private int totalCount;
         private List<DeviceCommandResp> deviceCommands;
     }
@@ -60,4 +70,10 @@ public class QueryDeviceCommands {
         private int issuedTimes;
         private int maxRetransmit;
     }
+
+    @lombok.Data
+    public class Result {
+        private String reason;
+    }
+
 }

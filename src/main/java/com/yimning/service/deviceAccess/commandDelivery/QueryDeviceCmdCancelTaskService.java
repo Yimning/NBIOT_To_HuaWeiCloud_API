@@ -15,7 +15,7 @@ public interface QueryDeviceCmdCancelTaskService {
     /** 
      * @Description: 查询设备命令撤销任务
      */
-    public DeviceCommands QueryDeviceCmdCancelTask(QueryDeviceCommands queryDeviceCommands) throws Exception ;
+    public QueryDeviceCommands QueryDeviceCmdCancelTask(QueryDeviceCommands queryDeviceCommands) throws Exception ;
 
 }
 

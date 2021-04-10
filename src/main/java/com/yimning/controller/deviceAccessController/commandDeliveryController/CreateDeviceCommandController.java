@@ -11,23 +11,23 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Creating Device Commands :
- * 
- * The device profile file defines commands that the IoT platform can deliver to a device. 
- * When an NA needs to configure or modify the service attributes of a device, the NA can 
+ * <p>
+ * The device profile file defines commands that the IoT platform can deliver to a device.
+ * When an NA needs to configure or modify the service attributes of a device, the NA can
  * call this API to deliver commands to the device.
  */
 
-    @RestController
-    @RequestMapping("/commandDelivery")
-    public class CreateDeviceCommandController{
-        @Autowired
-        private CreateDeviceCommandService createDeviceCommandService;
+@RestController
+@RequestMapping("/commandDelivery")
+public class CreateDeviceCommandController {
+    @Autowired
+    private CreateDeviceCommandService createDeviceCommandService;
 
-        @PostMapping("/createDeviceCommand")
-        public DeviceCommands DeleteDevice(@RequestBody DeviceCommands deviceCommands) throws Exception {
-            deviceCommands = createDeviceCommandService.CreateDeviceCommand(deviceCommands);
-            return deviceCommands;
-        }
+    @PostMapping("/createDeviceCommand")
+    public DeviceCommands DeleteDevice(@RequestBody DeviceCommands deviceCommands) throws Exception {
+        deviceCommands = createDeviceCommandService.CreateDeviceCommand(deviceCommands);
+        return deviceCommands;
     }
+}
 
 
