@@ -16,7 +16,7 @@ import com.yimning.utils.StreamClosedHttpResponse;
 
 public interface CreateDeviceCommandService {
     /** 
-     * @Description: 创建设备的命令
+     * @Description: 创建设备命令
      */
     public DeviceCommands CreateDeviceCommand(DeviceCommands deviceCommands) throws Exception ;
 
