@@ -1,5 +1,6 @@
 package com.yimning.service.deviceAccess.commandDelivery.impl;
 
+import com.yimning.service.deviceAccess.appAccessSecurity.Authentication;
 import com.yimning.utils.Constant;
 import com.yimning.utils.HttpsUtil;
 import com.yimning.utils.JsonUtil;
@@ -25,7 +26,8 @@ public class QueryDeviceCommandsImpl {
         httpsUtil.initSSLConfigForTwoWay();
 
         // Authentication.get token
-        String accessToken = login(httpsUtil);
+        Authentication authentication = new Authentication();
+        String accessToken = authentication.accessToken();
 
         //Please make sure that the following parameter values have been modified in the Constant file.
 		String appId = Constant.APPID;
