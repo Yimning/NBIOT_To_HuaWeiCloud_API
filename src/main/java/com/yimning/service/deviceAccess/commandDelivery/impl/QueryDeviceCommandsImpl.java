@@ -1,6 +1,8 @@
 package com.yimning.service.deviceAccess.commandDelivery.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.parser.Feature;
 import com.yimning.common.lang.HttpResponseResult;
 import com.yimning.entity.DeviceCommands;
 import com.yimning.entity.QueryDeviceCommands;
@@ -9,6 +11,7 @@ import com.yimning.service.deviceAccess.commandDelivery.QueryDeviceCommandsServi
 import com.yimning.utils.Constant;
 import com.yimning.utils.HttpsUtil;
 import com.yimning.utils.StreamClosedHttpResponse;
+import com.yimning.utils.TypeConversionUtil;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -26,7 +29,7 @@ import java.util.Map;
 public class QueryDeviceCommandsImpl implements QueryDeviceCommandsService {
 
     @Override
-    public QueryDeviceCommands QueryDeviceCommands(QueryDeviceCommands queryDeviceCommands) throws Exception {
+    public Map<String, Object> QueryDeviceCommands(QueryDeviceCommands queryDeviceCommands) throws Exception {
 
         // Two-Way Authentication
         HttpsUtil httpsUtil = new HttpsUtil();
@@ -85,17 +88,32 @@ public class QueryDeviceCommandsImpl implements QueryDeviceCommandsService {
         String json = null;
         int index = responseQueryDeviceCMD.getContent().indexOf("\"paras\":{\""); //找到第一个空格所在的索引
         System.out.println(index);
-
+        Map<String, Object> map = new HashMap<>();
         HttpResponseResult httpResponseResult = new HttpResponseResult();
         if (responseQueryDeviceCMD.getStatusLine().getStatusCode() == 200) {
-                queryDeviceCommands = JSONObject.parseObject(responseQueryDeviceCMD.getContent(), QueryDeviceCommands.class);
+            JSONObject jsonObject = JSONObject.parseObject(responseQueryDeviceCMD.getContent(), JSONObject.class, Feature.OrderedField);
+            System.out.println(jsonObject);
+            //使用fastjson 进行jsonObject转实体类对象
+           // queryDeviceCommands = JSON.toJavaObject(jsonObject,QueryDeviceCommands.class);
+            //JSONObject user = resJson.getJSONObject("user");
+
+             //循环转换
+            for (Map.Entry<String, Object> entry : jsonObject.entrySet()) {
+                map.put(entry.getKey(), entry.getValue());
+            }
+            // System.out.println("map对象:" + map.toString());
+            // System.out.println(queryDeviceCommands.toString());
+            // queryDeviceCommands = JSONObject.parseObject(responseQueryDeviceCMD.getContent(), QueryDeviceCommands.class);
         } else {
             httpResponseResult = JSONObject.parseObject(responseQueryDeviceCMD.getContent(), HttpResponseResult.class);
         }
         httpResponseResult.setStatus_code(responseQueryDeviceCMD.getStatusLine().getStatusCode());
         httpResponseResult.setReason_phrase(responseQueryDeviceCMD.getStatusLine().getReasonPhrase());
         queryDeviceCommands.setHttpResponseResult(httpResponseResult);
-
-        return queryDeviceCommands;
+        TypeConversionUtil.getObjectToMap(httpResponseResult);
+        //map追加map
+        map.putAll(TypeConversionUtil.getObjectToMap(httpResponseResult));
+        System.out.println(map);
+        return map;
     }
 }

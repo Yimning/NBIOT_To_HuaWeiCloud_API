@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 /**
  * Querying Device Commands :
  * <p>
@@ -23,8 +25,8 @@ public class QueryDeviceCommandsController {
     private QueryDeviceCommandsService queryDeviceCommandsService;
 
     @PostMapping("/queryDeviceCommands")
-    public QueryDeviceCommands DeleteDevice(@RequestBody QueryDeviceCommands queryDeviceCommands) throws Exception {
-        queryDeviceCommands = queryDeviceCommandsService.QueryDeviceCommands(queryDeviceCommands);
-        return queryDeviceCommands;
+    public Map<String, Object> DeleteDevice(@RequestBody QueryDeviceCommands queryDeviceCommands) throws Exception {
+        Map<String, Object> map = queryDeviceCommandsService.QueryDeviceCommands(queryDeviceCommands);
+        return map;
     }
 }

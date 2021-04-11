@@ -5,6 +5,11 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.yimning.entity.DeviceCommands;
+import org.apache.ibatis.io.ResolverUtil;
+
+import java.lang.reflect.Field;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * @program: NBIOT_To_HuaWeiCloud_API
@@ -12,8 +17,8 @@ import com.yimning.entity.DeviceCommands;
  * @author: Yimning
  * @create: 2021-04-10 22:54
  **/
-public class test {
-    public static void main(StringExercise[] args) throws JsonProcessingException {
+public class Test {
+    public static void main(String[] args) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         ObjectNode entity = mapper.createObjectNode();
         entity.put("aabc",1231);
@@ -57,5 +62,15 @@ public class test {
 
         DeviceCommands commands = new DeviceCommands(json);
         System.out.println(commands);
+//        Test t = new Test();
+//        t.test1(9,6);
+//        System.out.println( t.test1(9,6));
     }
+    public int test1(int m,int n){
+        int k;
+        k=m>n?m:n;
+        for(;(k%m!=0)||(k%n!=0);k++);
+        return k;
+    }
+
 }

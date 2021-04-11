@@ -13,6 +13,6 @@ public interface QueryDeviceCommandsService {
     /** 
      * @Description: 查询设备命令
      */
-    public QueryDeviceCommands QueryDeviceCommands(QueryDeviceCommands queryDeviceCommands) throws Exception ;
+    public Map<String, Object> QueryDeviceCommands(QueryDeviceCommands queryDeviceCommands) throws Exception ;
 
 }

@@ -15,7 +15,7 @@ import java.util.List;
  * @create: 2021-04-10 20:59
  **/
 @lombok.Data
-public class QueryDeviceCommands {
+public  class QueryDeviceCommands {
     private String app_key;
     private String Authorization;
     private Integer pageNo;
@@ -32,7 +32,7 @@ public class QueryDeviceCommands {
 
 
     @lombok.Data
-    public class Pagination {
+    public static class Pagination {
         private int pageNo;
         private int pageSize;
         private int totalSize;
@@ -54,6 +54,7 @@ public class QueryDeviceCommands {
 
         private String taskId;
         private int totalCount;
+        //设备命令撤销任务信息列表。
         private List<DeviceCommandResp> deviceCommands;
     }
 

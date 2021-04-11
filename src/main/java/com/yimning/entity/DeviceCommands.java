@@ -40,10 +40,10 @@ public class DeviceCommands {
     private int maxRetransmit;//命令下发最大重传次数。
     private HttpResponseResult httpResponseResult;
 
-    @Data
-    public class Paras {
-        private String value;
-    }
+//    @Data
+//    public class Paras {
+//        private String value;
+//    }
 
     @lombok.Data
     public static class Command {
@@ -83,10 +83,10 @@ public class DeviceCommands {
     //撤销命令时可用
     private String taskId;
     private int totalCount;
-    private List<String> deviceCommands;
-
+    private List<DeviceCommandResp> deviceCommands;
+//字符串？
     @Data
-    public class deviceCommands {
+    public static class DeviceCommandResp {
         private String commandId;
         private String appId;
         private String deviceId;
