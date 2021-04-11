@@ -24,6 +24,7 @@ public  class QueryDeviceCommands {
     private String appId;
     private String deviceId;  //命令所属的应用ID，当创建授权应用下的命令时才需要填写。
     private String status;
+    private String commandId;
     private String startTime;
     private String endTime;
     private HttpResponseResult httpResponseResult;

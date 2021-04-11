@@ -60,8 +60,8 @@ public class Test {
         String newjson = objectMapper.writeValueAsString(newNode);
         System.out.println(newjson);
 
-        DeviceCommands commands = new DeviceCommands(json);
-        System.out.println(commands);
+//        DeviceCommands commands = new DeviceCommands(json);
+//        System.out.println(commands);
 //        Test t = new Test();
 //        t.test1(9,6);
 //        System.out.println( t.test1(9,6));

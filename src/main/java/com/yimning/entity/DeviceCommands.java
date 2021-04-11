@@ -46,7 +46,7 @@ public class DeviceCommands {
 //    }
 
     @lombok.Data
-    public static class Command {
+    public  class Command {
         //命令对应的服务ID，用于标识一个服务。要与profile中定义的serviceId保持一致。
         private String serviceId;
         //命令服务下具体的命令名称，要与profile中定义的命令名保持一致。
@@ -64,7 +64,7 @@ public class DeviceCommands {
 
     }
 
-    public DeviceCommands(String json) throws JsonProcessingException {
+/*    public DeviceCommands(String json) throws JsonProcessingException {
         // 实例化 ObjectMapper 对象
         ObjectMapper objectMapper = new ObjectMapper();
         // 将 json 转成 JsonNode 对象
@@ -78,7 +78,7 @@ public class DeviceCommands {
         Command command =  new Command();
         command.paras = newNode;
         this.command = command;
-    }
+    }*/
 
     //撤销命令时可用
     private String taskId;

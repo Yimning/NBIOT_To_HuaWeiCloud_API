@@ -87,12 +87,12 @@ public class QueryDeviceCommandsImpl implements QueryDeviceCommandsService {
         System.out.println();
         String json = null;
         int index = responseQueryDeviceCMD.getContent().indexOf("\"paras\":{\""); //找到第一个空格所在的索引
-        System.out.println(index);
+       // System.out.println(index);
         Map<String, Object> map = new HashMap<>();
         HttpResponseResult httpResponseResult = new HttpResponseResult();
         if (responseQueryDeviceCMD.getStatusLine().getStatusCode() == 200) {
             JSONObject jsonObject = JSONObject.parseObject(responseQueryDeviceCMD.getContent(), JSONObject.class, Feature.OrderedField);
-            System.out.println(jsonObject);
+           // System.out.println(jsonObject);
             //使用fastjson 进行jsonObject转实体类对象
            // queryDeviceCommands = JSON.toJavaObject(jsonObject,QueryDeviceCommands.class);
             //JSONObject user = resJson.getJSONObject("user");
