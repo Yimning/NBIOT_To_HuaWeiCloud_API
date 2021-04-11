@@ -1,5 +1,11 @@
 package com.yimning.entity;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.TreeCodec;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.yimning.common.lang.HttpResponseResult;
 import lombok.Data;
@@ -39,8 +45,8 @@ public class DeviceCommands {
         private String value;
     }
 
-    @Data
-    public class Command {
+    @lombok.Data
+    public static class Command {
         //命令对应的服务ID，用于标识一个服务。要与profile中定义的serviceId保持一致。
         private String serviceId;
         //命令服务下具体的命令名称，要与profile中定义的命令名保持一致。
@@ -51,8 +57,28 @@ public class DeviceCommands {
             “value”是该命令参数要设置的值，根据产品模型中命令参数的取值范围自定义设置。
          */
         private ObjectNode paras;
+
+
+//        ObjectMapper objectMapper = new ObjectMapper();
+//        ObjectNode parentNode = objectMapper.createObjectNode();
+
     }
 
+    public DeviceCommands(String json) throws JsonProcessingException {
+        // 实例化 ObjectMapper 对象
+        ObjectMapper objectMapper = new ObjectMapper();
+        // 将 json 转成 JsonNode 对象
+        JsonNode rootNode = objectMapper.readTree(json.toString());
+        System.out.println(rootNode);
+
+        // 创建新节点
+        com.fasterxml.jackson.databind.node.ObjectNode newNode = objectMapper.createObjectNode();
+        newNode.setAll((com.fasterxml.jackson.databind.node.ObjectNode)rootNode);
+        System.out.println(newNode);
+        Command command =  new Command();
+        command.paras = newNode;
+        this.command = command;
+    }
 
     //撤销命令时可用
     private String taskId;

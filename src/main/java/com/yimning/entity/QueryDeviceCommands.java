@@ -1,6 +1,10 @@
 package com.yimning.entity;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.yimning.common.lang.HttpResponseResult;
+import lombok.Data;
 
 import java.util.List;
 
@@ -35,8 +39,7 @@ public class QueryDeviceCommands {
     }
 
     @lombok.Data
-    public class DeviceCommandTaskResp {
-
+    public static class DeviceCommandTaskResp {
         private String commandId;
         private String appId;
         private String deviceId;
@@ -53,8 +56,9 @@ public class QueryDeviceCommands {
         private int totalCount;
         private List<DeviceCommandResp> deviceCommands;
     }
+
     @lombok.Data
-    public class DeviceCommandResp {
+    public static class DeviceCommandResp {
         private String commandId;
         private String appId;
         private String deviceId;
@@ -71,8 +75,9 @@ public class QueryDeviceCommands {
         private int maxRetransmit;
     }
 
+
     @lombok.Data
-    public class Result {
+    public static class Result {
         private String reason;
     }
 

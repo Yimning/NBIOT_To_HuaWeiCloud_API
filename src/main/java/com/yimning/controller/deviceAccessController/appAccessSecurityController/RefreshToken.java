@@ -24,10 +24,10 @@ public class RefreshToken {
         httpsUtil.initSSLConfigForTwoWay();
 
         // get refreshToken
-        String refreshToken = getRefreshToken(httpsUtil); 
+        String refreshToken = getRefreshToken(httpsUtil);
         String appId = Constant.APPID;
         String secret = Constant.SECRET;
-        String urlRefreshToken = Constant.REFRESH_TOKEN; 
+        String urlRefreshToken = Constant.REFRESH_TOKEN;
 
         Map<String, Object> param_reg = new HashMap<>();
         param_reg.put("appId", appId);
