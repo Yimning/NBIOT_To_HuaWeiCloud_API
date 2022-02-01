@@ -34,7 +34,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 
 
-public class HttpsUtil {
+public class HttpClientUtil {
 	public final static String HTTPGET = "GET";
 
 	public final static String HTTPPUT = "PUT";
