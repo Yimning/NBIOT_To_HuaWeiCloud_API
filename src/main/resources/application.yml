@@ -8,4 +8,8 @@ spring:
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**Mapper.xml
 server:
-  port: 8081
+  max-http-header-size: 8192
+  tomcat:
+
+    uri-encoding: UTF-8
+  port: 8089
